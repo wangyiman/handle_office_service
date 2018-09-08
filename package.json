@@ -12,6 +12,7 @@
     "exceljs": "^1.6.2",
     "fs": "0.0.1-security",
     "koa": "^2.5.2",
+    "koa-body": "^4.0.4",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "path": "^0.12.7"
