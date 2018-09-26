@@ -39,15 +39,14 @@ router.get('/', async (ctx, next) => {
   data.unshift(header);
   var finnalData = {
     data: data
-  }
+  };
   var finalStr = JSON.stringify(finnalData);
-    let html =`
-        <h1>Koa2 request post demo</h1>
+    let html =`<h1>Koa2 request post demo</h1>
         <form method="POST"  action="/bomlist">
-            <input name='webSite' value=${finalStr}/><br/>
+            <input name='webSite' value=${finalStr} type='text'/>
+            <br/>
             <button type="submit">submit</button>
-        </form>
-    `;
+        </form>`;
     ctx.response.type = 'text/html';        
     ctx.response.body = html;
 });
@@ -55,7 +54,8 @@ router.get('/', async (ctx, next) => {
 router.post('/bomlist', async (ctx, next) => {
   let postData = ctx.request.body;
   console.log(postData);
-  let result = await generateExcel();
+  postData ={"userInfo":{"designId":"2018926","designUser":"布谷","customerAddress":"朝阳wwww"},"bomList":[{"customComputed":[]},{"decoComputed":[]},{"eleComputed":[]},{"plateComputed":[]}]};
+  let result = await generateExcel(postData);
   let fileName = result;
   let reqPath = path.join(__dirname, staticPath);
   reqPath =  path.join(reqPath, fileName);
