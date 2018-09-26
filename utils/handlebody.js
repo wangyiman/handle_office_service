@@ -1,5 +1,5 @@
 let handleBody = (data, ws1, nowRow, index) => {
-  let computedType = ['customComputed', 'decoComputed', 'eleComputed', 'plateComputed']
+  let computedType = ['customComputed', 'plateComputed', 'eleComputed', 'decoComputed']
   let dataLength = data[index][computedType[index]].length;
   let newRowValue;
   let row;
